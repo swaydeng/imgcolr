@@ -211,7 +211,7 @@
 })(jQuery);
 
 // jQuery Plugin - for example: $(elem).imgcolr()
-(function (window, $, undefined) {
+(function ($, undefined) {
 
   var pluginName = 'imgcolr';
 
@@ -225,7 +225,7 @@
     }
 
     options = $.extend({ url: element.src }, options);
-    // if data-imgcolr-ignore is specified on the img node, than rewrite the options
+    // if data-imgcolr-ignore is specified on the img node, then rewrite the options
     if (typeof ignore === 'string') {
       options.ignore = ignore;
     }
@@ -251,4 +251,4 @@
     });
   };
 
-})(window, jQuery);
+})(jQuery);

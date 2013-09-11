@@ -218,13 +218,16 @@
   function Plugin (element, selector, options) {
     var elem = $(element);
     var ignore = elem.data('imgcolrIgnore');
+    var defOpt = {
+      url: element.src
+    };
 
     if (typeof selector === 'object') {
       options = selector;
       selector = undefined;
     }
 
-    options = $.extend({ url: element.src }, options);
+    options = $.extend(defOpt, options);
     // if data-imgcolr-ignore is specified on the img node, then rewrite the options
     if (typeof ignore === 'string') {
       options.ignore = ignore;

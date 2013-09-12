@@ -2,7 +2,7 @@
  * @Author      Sway Deng
  * @Description Retrieve the dominant border color of an image.
  */
-(function ($, undefined) {
+(function (window, $, undefined) {
 
 /****** some constants  ******/
   // event name
@@ -205,14 +205,10 @@
     return appendFlash;
   })();
 
-  // The top-level namespace
+  // The top-level namespace, so that so that the method Imgcolr.color can be invoked from swf
   window.Imgcolr = Imgcolr;
 
-})(jQuery);
-
-// jQuery Plugin - for example: $(elem).imgcolr()
-(function ($, undefined) {
-
+  // jQuery Plugin - for example: $(elem).imgcolr()
   var pluginName = 'imgcolr';
 
   function Plugin (element, selector, options) {
@@ -235,7 +231,7 @@
 
     options.success = function (data) {
       var matches = typeof selector === 'function' ? selector.call(element, element) :
-            typeof selector === 'string' ? elem.parents(selector) : elem.parent();
+          typeof selector === 'string' ? elem.parents(selector) : elem.parent();
 
       matches.css('backgroundColor', data.color);
     };
@@ -254,4 +250,4 @@
     });
   };
 
-})(jQuery);
+})(window, jQuery);

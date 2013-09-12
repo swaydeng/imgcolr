@@ -55,7 +55,7 @@
       swf: swfUrl,
       allowScriptAccess: 'always',
       flashvars: {
-        allowedDomain: location.hostname
+        allowedDomain: window.location.hostname
       }
     });
   }

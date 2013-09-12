@@ -1,6 +1,6 @@
-define(['jQuery', 'Imgcolr'], function ($, Imgcolr) {
+define(['jQuery'], function ($) {
 
-  Imgcolr.appendFlash = (function () {
+  var appendFlash = (function () {
     var version, versionNumbers, flashAvailable;
     // Prototype style
     // https://github.com/sstephenson/prototype/blob/1fb9728/src/prototype.js#L81
@@ -67,8 +67,8 @@ define(['jQuery', 'Imgcolr'], function ($, Imgcolr) {
       return arr.join('');
     }
 
-    // append a flash object
-    function appendFlash (elem, options) {
+    // return the real method to append a flash object
+    return function (elem, options) {
       var attrs;
 
       if (!options.swf || !flashAvailable) {
@@ -103,9 +103,7 @@ define(['jQuery', 'Imgcolr'], function ($, Imgcolr) {
       }
 
       return elem.children().get(0);
-    }
-
-    return appendFlash;
+    };
   })();
 
 });

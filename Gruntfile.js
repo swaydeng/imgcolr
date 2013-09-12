@@ -28,6 +28,7 @@ module.exports = function (grunt) {
           }
         },
         src: [
+            'src/shortcut.js',
             'src/color.js',
             'src/appendFlash.js',
             'src/outer.js',

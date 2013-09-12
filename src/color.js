@@ -1,4 +1,4 @@
-define(['jQuery'], function ($) {
+define(['jQuery', 'appendFlash'], function ($, appendFlash) {
 
 /****** some constants  ******/
   // event name
@@ -12,8 +12,6 @@ define(['jQuery'], function ($) {
   var swfObj;
   // modify this according to your scenario
   var swfUrl = 'http://view.1688.com/book/swfapp/imgcolr/imgcolr.swf';
-  // shortcut for Imgcolr
-  var Imgcolr = {};
   // all deferred objects cache
   var dfdCache = {};
   // get or cache Deferred objects
@@ -44,7 +42,7 @@ define(['jQuery'], function ($) {
       width: '1px',
       height: '1px'
     });
-    swfObj = Imgcolr.appendFlash(swfNode, {
+    swfObj = appendFlash(swfNode, {
       width: 1,
       height: 1,
       wmode: 'transparent',

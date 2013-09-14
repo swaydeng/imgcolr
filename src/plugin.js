@@ -22,10 +22,12 @@ define(['jQuery', 'Imgcolr'], function ($, Imgcolr) {
     }
 
     options.success = function (data) {
-      var matches = typeof selector === 'function' ? selector.call(element, element) :
+      var matches = typeof selector === 'function' ? selector.call(element, element, data.color) :
           typeof selector === 'string' ? elem.parents(selector) : elem.parent();
-
-      matches.css('backgroundColor', data.color);
+      // for `selector.call(element, element, data.color)` may not return a jQuery object
+      if (matches && matches.jquery) {
+        matches.css('backgroundColor', data.color);
+      }
     };
 
     Imgcolr.color(options);

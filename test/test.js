@@ -7,7 +7,9 @@
 
       $('div.multiple img').imgcolr('.inner-box');
 
-      $('div.isolate img').imgcolr(function () {
+      $('div.isolate img').imgcolr(function (elem, color) {
+        console.log(this, elem, color);
+        console.log(this === elem);
         return $(this).prev('.text');
       });
 

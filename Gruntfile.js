@@ -38,6 +38,21 @@ module.exports = function (grunt) {
         nonull: true
       }
     },
+    jshint: {
+      options: {
+        curly: true,
+        eqeqeq: true,
+        eqnull: true,
+        browser: true,
+        undef: true,
+        unused: true,
+        // devel: false,
+        globals: {
+          jQuery: true
+        }
+      },
+      files: ['dist/<%= pkg.name %>.js']
+    },
     uglify: {
       options: {
         banner: '<%= banner.compact %>'
@@ -51,10 +66,11 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['clean', 'concat', 'jshint', 'uglify']);
 
 
 };

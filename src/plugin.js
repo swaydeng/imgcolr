@@ -38,9 +38,7 @@ define(['jQuery', 'Imgcolr'], function ($, Imgcolr) {
   //    there are 4 kinds of values: 't', 'r', 'b', 'l', you can ignore multiple borders like this: 'tb', it's optional
   $.fn[pluginName] = function (selector, options) {
     return this.each(function () {
-      if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName, new Plugin(this, selector, options));
-      }
+      new Plugin(this, selector, options);
     });
   };
 

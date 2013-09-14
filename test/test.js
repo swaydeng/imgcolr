@@ -10,6 +10,7 @@
       $('div.isolate img').imgcolr(function (elem, color) {
         console.log(this, elem, color);
         console.log(this === elem);
+      }).imgcolr(function () {
         return $(this).prev('.text');
       });
 

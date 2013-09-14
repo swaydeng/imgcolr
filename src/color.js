@@ -1,4 +1,4 @@
-define(['jQuery', 'appendFlash'], function ($, appendFlash) {
+define(['jQuery', 'appendFlash', 'Imgcolr'], function ($, appendFlash, Imgcolr) {
 
 /****** some constants  ******/
   // event name
@@ -25,23 +25,10 @@ define(['jQuery', 'appendFlash'], function ($, appendFlash) {
   };
 
   // swf method
-  function compute (url, ignore) {
-    getDfd(DFD_SWF).done(function (swfObj) {
-      swfObj.getColor(url, ignore);
-    });
+  var compute = function (url, ignore) {
+    var style = 'position:absolute; left:0; top:0; width:1px; height:1px;';
+    var swfNode = $('<div style="' + style + '">').appendTo('body');
 
-    // load swf file when needed, only execute once
-    if (swfObj) {
-      return;
-    }
-
-    var swfNode = $('<div id="imgcolr-swf-container">').appendTo('body').css({
-      position: 'absolute',
-      left: '0px',
-      top: '0px',
-      width: '1px',
-      height: '1px'
-    });
     swfObj = appendFlash(swfNode, {
       width: 1,
       height: 1,
@@ -52,7 +39,15 @@ define(['jQuery', 'appendFlash'], function ($, appendFlash) {
         allowedDomain: window.location.hostname
       }
     });
-  }
+
+    compute = function (url, ignore) {
+      getDfd(DFD_SWF).done(function (obj) {
+        obj.getColor(url, ignore);
+      });
+    };
+
+    compute(url, ignore);
+  };
 
   // @private - very important, this method is called from swf internally
   Imgcolr.trigger = function (evtObj) {

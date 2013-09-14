@@ -75,7 +75,6 @@ define(['jQuery'], function ($) {
         return false;
       }
 
-      elem = $(elem);
       attrs = {
         id: 'swf-' + ($.guid++),
         width: options.width || 1,

@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     concat: {
       dist: {
         options: {
-          banner: '<%= banner.full %>\n;(function (window, $, undefined) {',
+          banner: '<%= banner.full %>\n(function (window, $, undefined) {',
           footer: '})(window, jQuery);',
           process: function (src, filepath) {
             if ((/define\(.*?\{/).test(src)) {
@@ -44,6 +44,7 @@ module.exports = function (grunt) {
         eqeqeq: true,
         eqnull: true,
         browser: true,
+        indent: 2,
         undef: true,
         unused: true,
         // devel: false,
@@ -61,6 +62,9 @@ module.exports = function (grunt) {
         src: 'dist/<%= pkg.name %>.js',
         dest: 'dist/<%= pkg.name %>.min.js'
       }
+    },
+    qunit: {
+      files: ['test/qunit/index.html']
     }
   });
 
@@ -68,9 +72,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'concat', 'jshint', 'uglify']);
-
+  grunt.registerTask('build', ['clean', 'concat', 'jshint', 'uglify']);
+  grunt.registerTask('test', ['build', 'qunit']);
+  grunt.registerTask('default', ['build']);
 
 };

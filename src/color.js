@@ -52,15 +52,15 @@ define(['jQuery', 'appendFlash', 'Imgcolr'], function ($, appendFlash, Imgcolr) 
   // @private - very important, this method is called from swf internally
   Imgcolr.trigger = function (evtObj) {
     switch (evtObj.type) {
-      case EVT_SWFREADY:
-        getDfd(DFD_SWF).resolve(swfObj);
-        break;
-      case EVT_SUCCESS:
-        getDfd(evtObj.data.url).resolve(evtObj.data);
-        break;
-      case EVT_ERROR:
-        getDfd(evtObj.data.url).reject(evtObj.data);
-        break;
+    case EVT_SWFREADY:
+      getDfd(DFD_SWF).resolve(swfObj);
+      break;
+    case EVT_SUCCESS:
+      getDfd(evtObj.data.url).resolve(evtObj.data);
+      break;
+    case EVT_ERROR:
+      getDfd(evtObj.data.url).reject(evtObj.data);
+      break;
     }
   };
   // Imgcolr.color

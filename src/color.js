@@ -8,10 +8,8 @@ define(['jQuery', 'appendFlash', 'Imgcolr'], function ($, appendFlash, Imgcolr) 
   // swf dfd keyname
   var DFD_SWF      = 'dfd-swf';
 
-  // swf object
-  var swfObj;
-  // modify this according to your scenario
-  var swfUrl = 'http://view.1688.com/book/swfapp/imgcolr/imgcolr.swf';
+  // swf file url, swf object
+  var swfUrl, swfObj;
   // all deferred objects cache
   var dfdCache = {};
   // get or cache Deferred objects
@@ -47,6 +45,14 @@ define(['jQuery', 'appendFlash', 'Imgcolr'], function ($, appendFlash, Imgcolr) 
     };
 
     compute(url, ignore);
+  };
+  // You must specify the swf url according to your scenario before using this.
+  Imgcolr.setSwf = function (url) {
+    swfUrl = url;
+  };
+
+  Imgcolr.getSwf = function () {
+    return swfUrl;
   };
 
   // @private - very important, this method is called from swf internally

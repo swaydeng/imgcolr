@@ -8,6 +8,8 @@ module('default group', {
 var $ = jQuery;
 var root = $('#imgset-test');
 
+Imgcolr.setSwf('http://view.1688.com/book/swfapp/imgcolr/imgcolr.swf');
+
 test('globals set up', function() {
   ok(window.Imgcolr, 'global object Imgcolr is created');
 });

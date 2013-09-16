@@ -1,5 +1,5 @@
 (function ($) {
-
+  Imgcolr.setSwf('http://view.1688.com/book/swfapp/imgcolr/imgcolr.swf');
   $(function () {
     $('#btn').click(function () {
 

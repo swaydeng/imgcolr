@@ -40,17 +40,7 @@ module.exports = function (grunt) {
     },
     jshint: {
       options: {
-        curly: true,
-        eqeqeq: true,
-        eqnull: true,
-        browser: true,
-        indent: 2,
-        undef: true,
-        unused: true,
-        // devel: false,
-        globals: {
-          jQuery: true
-        }
+        jshintrc: '.jshintrc'
       },
       files: ['dist/<%= pkg.name %>.js']
     },
@@ -64,7 +54,9 @@ module.exports = function (grunt) {
       }
     },
     qunit: {
-      files: ['test/qunit/index.html']
+      options: {
+        urls: ['./test/qunit/index.html']
+      }
     }
   });
 

@@ -35,8 +35,46 @@
       text-decoration: none;
     }
     .intro a:hover {
-      color: green;
+      color: #D91E76;
       text-decoration: underline;
+    }
+    .carousel-box {
+      width: 635px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .cb-bd {
+      height: 250px;
+      overflow: hidden;
+    }
+    .carousel-box .box {
+      width: 635px;
+      height: 250px;
+      overflow: hidden;
+    }
+    .carousel-box .box img {
+      vertical-align: bottom;
+    }
+    .carousel-box ul {
+      padding-left: 0;
+      text-align: center;
+    }
+    .carousel-box li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      overflow: hidden;
+      margin: 0 3px;
+      border-radius: 50%;
+      background-color: #333;
+      cursor: pointer;
+    }
+    .carousel-box li.current {
+      width: 6px;
+      height: 6px;
+      border: 2px solid #333;
+      background-color: transparent;
+      cursor: default;
     }
   </style>
 </head>
@@ -46,16 +84,21 @@
     <p><a href="https://github.com/swaydeng/imgcolr" title="imgcolr">imgcolr</a> is a jQuery plugin for grabbing the dominant color of a given image's borders. You can use it to make the web more beautiful. Now <button>click me</button> and have a taste!</p>
   </div>
   <div class="carousel-box">
-    <div class="box"></div>
-    <div class="box">
-      <img src="" alt=""/>
+    <div class="cb-bd">
+      <div class="box">
+        <img src="http://l1.yimg.com/nn/fp/rsz/092213/images/smush/ink_635x250_1379809790.jpg" alt="" />
+      </div>
+      <div class="box">
+        <img src="http://l3.yimg.com/nn/fp/rsz/092113/images/smush/paul_635x250_1379802526.jpg" alt="" />
+      </div>
+      <div class="box">
+        <img src="http://l4.yimg.com/nn/fp/rsz/092313/images/smush/douglas-quip_635x250_1379916451.jpg" alt="" />
+      </div>
+      <div class="box">
+        <img src="http://l1.yimg.com/nn/fp/rsz/091913/images/smush/1stories_635x250_1379625269.jpg" alt="" />
+      </div>
     </div>
-    <div class="box">
-      <img src="http://l1.yimg.com/nn/fp/rsz/092213/images/smush/ink_635x250_1379809790.jpg" alt="" />
-    </div>
-    <div class="box">
-      <img src="http://l3.yimg.com/nn/fp/rsz/092113/images/smush/paul_635x250_1379802526.jpg" alt="" />
-    </div>
+    <ul><li></li><li class="current"></li><li></li><li></li></ul>
   </div>
 </div>
 </body>

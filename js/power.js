@@ -55,7 +55,7 @@ root.on('click', 'ul li', function () {
 // imgcolr
 $('div.intro button').one('click', function () {
   // specify the swffile url
-  Imgcolr.setSwf('media/imgcolr.swf');
+  Imgcolr.setSwf('http://rawgithub.com/swaydeng/imgcolr/master/media/imgcolr.swf');
   $('img', boxes).imgcolr(function (img, color) {
     $(img).data('borderColor', color);
   });

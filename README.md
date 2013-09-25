@@ -64,7 +64,8 @@ var imgs = $('img');
 imgs.imgcolr();
 
 // get the image borders' color 
-// and the style property background-color of the ancestors with class "item" will be set to this color.
+// and the style property background-color of the ancestors with class "item" will 
+// be set to this color.
 imgs.imgcolr('.item');
 
 // get the image borders' color 
@@ -74,9 +75,9 @@ imgs.imgcolr(function () {
   return $(this).parent().next('.label');
 });
 
-// if you don't want any element's background-color change.
-// or maybe you just want to know the image borders' color.
-// return nothing is just fine.
+// if you don't want any element's background-color change,
+// or maybe you just want to know the image borders' color,
+// return nothing is fine.
 imgs.imgcolr(function (img, color) {
   // `img` refers to the current img element
   console.log(img);
@@ -84,5 +85,18 @@ imgs.imgcolr(function (img, color) {
   console.log(color);
 });
 
-// todo filter
+// Suppose that you just adapt background color only for a given image's left and 
+// right borders, you can ignore the others, here is the rule:
+// "t" represents top border 
+// "r" represents right border
+// "b" represents bottom border
+// "l" represents left border
+imgs.imgcolr({
+  ignore: 'tb'  // ignores top border and bottom border
+});
+
+// Of course you can use the filter and ignore option at the same time
+imgs.imgcolr('.item', {
+  ignore: 'tb'
+});
 ```

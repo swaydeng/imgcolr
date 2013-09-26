@@ -1,13 +1,13 @@
 imgcolr
 =======
 
-imgcolr is a jQuery plugin for grabbing the dominant color of a given image's borders. You can programmably adapt the elements' color on the webpages for the image after getting the color. Based on the idea, we can make the web more beautiful and interesting. Note that imgcolr can not handle images with colorful borders properly.
+imgcolr is a jQuery plugin for grabbing the dominant color of a given image's borders. You can programmably adapt the elements' color on the webpage for the image after getting the color. Based on the idea, we can make the web more beautiful and interesting. Note that imgcolr can not handle images with colorful borders properly.
 
 :point_right: [Check out the demo page](http://swaydeng.github.io/imgcolr/).
 
 ## How-To
 
-imgcolr accesses image binary data by using flash, so make sure Adobe Flash Player is installed properly. (Damn flash, why not use HTML5? Because HML5 image CORS is supported terribly by browser vendors.)
+imgcolr accesses image binary data by using flash, so make sure Adobe Flash Player is installed properly. (Damn flash, why not use HTML5? Because HTML5 image CORS is supported terribly by browser vendors.)
 
 #### Upload SWF file
 
@@ -16,7 +16,7 @@ First you should upload `media/imgcolr.swf` and hosts it on a server, suppose th
 #### crossdomain.xml
 
 If your swf file and images are hosted on the same domain, skip this step, if not, keep following.
-Make sure a `crossdomain.xml` file is in the root directory of the images server, like this: `http://img.foo.com/crossdomain.xml`, A crossdomain.xml file is an XML document that grants Adobe Flash Player(swf) permission to handle data across multiple domains  ([learn more](http://www.adobe.com/cn/devnet/articles/crossdomain_policy_file_spec.html)). In this scenario, we should grants the swf on `static.bar` permission to access image data, so your crossdomain.xml may be like this:
+Make sure a `crossdomain.xml` file is in the root directory of the image server, like this: `http://img.foo.com/crossdomain.xml`, A crossdomain.xml file is an XML document that grants Adobe Flash Player(swf) permission to handle data across multiple domains  ([learn more](http://www.adobe.com/cn/devnet/articles/crossdomain_policy_file_spec.html)). In this scenario, we should grants the swf on `static.bar.com` permission to access image data, so your crossdomain.xml may be like this:
 
 ```xml
 <?xml version="1.0"?>
@@ -27,7 +27,7 @@ Make sure a `crossdomain.xml` file is in the root directory of the images server
 
 #### JavaScript
 
-imgcolr is a jQuery plugin, so make sure jQuery is supported on your web page before adding imgcolr code:
+imgcolr is a jQuery plugin, so make sure jQuery is included on your web page before including imgcolr code:
 
 ```html
 <script src="jsdir/jquery.min.js"></script>
@@ -55,12 +55,21 @@ imgcolr handle `<img>` tag, or `HTMLImageElement`, consider a page with a simple
 
 Now i will explain the method in action:
 
+After including **imgcolr.min.js**, a global object `Imgcolr` will be created. Before 
+you use the plugin, you need specify the swf file's url:
+
+```javascript
+Imgcolr.setSwf('http://static.bar.com/dir/imgcolr.swf');
+```
+
+then feel free to use:
+
 ```javascript
 var imgs = $('img');
 
 // get the image borders' color 
 // and the style property background-color of each parent will be set to this color,
-// The result of this call is a red background for all div element with class "box". 
+// The result of this call is a background-color change for all div element with class "box". 
 imgs.imgcolr();
 
 // get the image borders' color 
@@ -100,3 +109,9 @@ imgs.imgcolr('.item', {
   ignore: 'tb'
 });
 ```
+
+## Build your own imgcolr
+
+Make sure `node` and node package `grunt-cli` are installed globally on your computer, and cd into the project directory, install necessary packages by running `npm install`.
+
+You should not modify **imgcolr.js** in root directory, for modular reason, please modify files in `src/`, and then run `grunt build` , the latest **imgcolr.js** and **imgcolr.min.js** will be created in `dist/`.

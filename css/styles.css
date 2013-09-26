@@ -10,6 +10,14 @@ body {
 }
 .intro {
   font-size: 18px;
+  -webkit-transition: -webkit-transform 1s ease;
+  -moz-transition: -moz-transform 1s ease;
+  transition: transform 1s ease;
+}
+.show .intro {
+  -webkit-transform: scale(.8);
+  -moz-transform: scale(.8);
+  transform: scale(.8);
 }
 .intro a {
   margin-right: 4px;
@@ -29,6 +37,12 @@ body {
   width: 635px;
   overflow: hidden;
   margin: 0 auto;
+  -webkit-transition: margin 1s ease;
+  -moz-transition: margin 1s ease;
+  transition: margin 1s ease;
+}
+.show .carousel-box {
+  margin-top: 60px;
 }
 .cb-bd {
   position: relative;
@@ -50,6 +64,8 @@ body {
   width: 635px;
 }
 .carousel-box .box img {
+  width: 635px;
+  height: 250px;
   vertical-align: bottom;
 }
 .carousel-box ul {

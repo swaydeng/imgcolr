@@ -54,6 +54,9 @@ root.on('click', 'ul li', function () {
 
 // imgcolr
 $('div.intro button').one('click', function () {
+
+  $(document.body).addClass('show');
+
   // specify the swffile url
   Imgcolr.setSwf('http://rawgithub.com/swaydeng/imgcolr/master/media/imgcolr.swf');
   $('img', boxes).imgcolr(function (img, color) {

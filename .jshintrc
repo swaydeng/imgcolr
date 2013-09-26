@@ -8,6 +8,7 @@
   "unused": true,
   // "devel": false,
   "globals": {
-    "jQuery": true
+    "jQuery": true,
+    "define": true
   }
 }

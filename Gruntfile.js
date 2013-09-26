@@ -32,7 +32,8 @@ module.exports = function (grunt) {
             'src/color.js',
             'src/appendFlash.js',
             'src/outer.js',
-            'src/plugin.js'
+            'src/plugin.js',
+            'src/amd-support.js'
         ],
         dest: 'dist/<%= pkg.name %>.js',
         nonull: true

@@ -110,6 +110,29 @@ imgs.imgcolr('.item', {
 });
 ```
 
+#### AMD module support
+
+imgcolr supports AMD, the arguments are identical except that the first argument is the element(s) to handle:
+
+```javascript
+define(['jquery', 'imgcolr'], function ( $, Imgcolr ) {
+
+    Imgcolr.setSwf('http://static.bar.com/dir/imgcolr.swf');
+
+    var imgs = $('img');
+
+    // identical to `imgs.imgcolr();`
+    Imgcolr.imgcolr(imgs);
+
+    // identical to `imgs.imgcolr('.item');`
+    Imgcolr.imgcolr(imgs, '.item');
+
+   //  identical to `imgs.imgcolr('.item', { ignore: 'tb' });`
+   Imgcolr.imgcolr(imgs, '.item', { ignore: 'tb' });
+
+});
+```
+
 ## Build your own imgcolr
 
 Make sure `node` and node package `grunt-cli` are installed globally on your computer, and cd into the project directory, install necessary packages by running `npm install`.

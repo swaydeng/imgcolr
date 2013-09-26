@@ -27,14 +27,14 @@ Make sure a `crossdomain.xml` file is in the root directory of the image server,
 
 #### JavaScript
 
-imgcolr is a jQuery plugin, so make sure jQuery is included on your web page before including imgcolr code:
+imgcolr is a jQuery plugin, so make sure jQuery is included in your web page before including imgcolr code:
 
 ```html
 <script src="jsdir/jquery.min.js"></script>
 <script src="jsdir/imgcolr.min.js"></script>
 ```
 
-imgcolr handle `<img>` tag, or `HTMLImageElement`, consider a page with a simple list on it:
+imgcolr handles `<img>` tag, or `HTMLImageElement`, consider a page with a simple list on it:
 
 ```html
 <ul>
@@ -112,7 +112,7 @@ imgs.imgcolr('.item', {
 
 #### AMD module support
 
-imgcolr supports AMD, the arguments are identical except that the first argument is the element(s) to handle:
+imgcolr supports AMD, the arguments are identical except that the first one is the element(s) to handle:
 
 ```javascript
 define(['jquery', 'imgcolr'], function ( $, Imgcolr ) {

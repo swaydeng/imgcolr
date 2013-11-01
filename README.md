@@ -7,7 +7,7 @@ imgcolr is a jQuery plugin for grabbing the dominant color of a given image's bo
 
 ## How-To
 
-imgcolr accesses image binary data by using flash, so make sure Adobe Flash Player is installed properly. (Damn flash, why not use HTML5? Because HTML5 image CORS is supported terribly by browser vendors.)
+imgcolr accesses image binary data by using flash, so make sure Adobe Flash Player is installed properly. (You can also use the [HTML5 version](#vhtml5))
 
 #### Upload SWF file
 
@@ -138,3 +138,23 @@ define(['jquery', 'imgcolr'], function ( $, Imgcolr ) {
 Make sure `node` and node package `grunt-cli` are installed globally on your computer, and cd into the project directory, install necessary packages by running `npm install`.
 
 You should not modify **imgcolr.js** in root directory, for modular reason, please modify files in `src/`, and then run `grunt build` , the latest **imgcolr.js** and **imgcolr.min.js** will be created in `dist/`.
+
+## <a name='vhtml5'>HTML5 version</a>
+
+I am a big fan of HTML5, however HTML5 image [CORS](https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS) specification is supported terribly by browser vendors. So imgcolr based on HTML5 just supports latest modern browsers like Google Chrome and Firefox , and it is experimental. Anyway, it's really faster than the Flash version.
+First of all , make sure jQuery and `imgcolr.html5.min.js` are included in your web page:
+
+```html
+<script src="jsdir/jquery.min.js"></script>
+<script src="jsdir/imgcolr.html5.min.js"></script>
+```
+
+If your web page and images on the page are hosted on the same domain, skip this step, if not, you should enable image  CORS by adding the appropriate Access-Control-Allow-Origin header info ([more details](https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image) you must read). There is no different on calling method, and `Imgcolr.setSwf` is unnecessary:
+
+```javascript
+
+var imgs = $('img');
+
+imgs.imgcolr();
+
+```

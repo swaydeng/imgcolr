@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="content">
+  <div class="intro">
+    <p>This is a demo for imgcolr HTML5 version. Now feed me an image url that supports CORS(<a href="https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS" target="_blank" title="What is CORS ?">?</a>).</p>
+  </div>
+  <div class="ctrl">
+    <input type="url" id="img-url" placeholder="https://lh6.googleusercontent.com/-M6YUIUct3HU/UnK7dm3BdaI/AAAAAAAABIw/oNC8my-C56A/w426-h237/FEF.PNG" />
+    <button id="btn"> Render </button>
+  </div>
+  <div class="img-box">
+    <img id="img" src="https://lh6.googleusercontent.com/-M6YUIUct3HU/UnK7dm3BdaI/AAAAAAAABIw/oNC8my-C56A/w426-h237/FEF.PNG" alt=""/>
+  </div>
+  <div class="fork-hook"><i></i><a href="https://github.com/swaydeng/imgcolr">View on GitHub</a></div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//rawgithub.com/swaydeng/imgcolr/master/imgcolr.html5.min.js"></script>
+<script>
+(function ($) {
+
+  var imgUrl = $('#img-url');
+  var imgBox = $('.img-box');
+
+  $('#btn').click(function () {
+    var url = imgUrl.val().trim();
+    if (!url) {
+      url = imgUrl.attr('placeholder');
+    }
+
+    $('img', imgBox).remove();
+    $('<img />').
+        appendTo(imgBox).
+        attr('src', url).
+        imgcolr(function (img, color) {
+          $(document.documentElement).css('backgroundColor', color);
+        });
+  });
+
+})(jQuery);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9185451-2', 'swaydeng.github.io');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

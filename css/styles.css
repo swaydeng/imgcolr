@@ -19,7 +19,7 @@ body {
   -moz-transform: scale(.8);
   transform: scale(.8);
 }
-.intro a {
+.intro a.logo {
   margin-right: 4px;
   font-size: 36px;
   font-family: "Kaushan Script";
@@ -110,4 +110,19 @@ body {
 .fork-hook a:hover {
   color: #D91E76;
   text-decoration: underline;
+}
+
+/* h5 */
+.ctrl {
+  padding: 4px 0 16px;
+}
+.ctrl input {
+  width: 700px;
+  height: 24px;
+  border: 1px solid #888;
+}
+.img-box img {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
 }

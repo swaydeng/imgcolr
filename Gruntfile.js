@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     clean: {
       build: [
         'dist',
-        'imgcolr.html5.min.js'
+        '<%= pkg.name %>.html5.min.js'
       ]
     },
     concat: {
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
       },
       files: [
         'dist/<%= pkg.name %>.js',
-        'imgcolr.html5.js'
+        '<%= pkg.name %>.html5.js'
       ]
     },
     uglify: {
@@ -56,12 +56,9 @@ module.exports = function (grunt) {
         banner: '<%= banner.compact %>'
       },
       build: {
-        src: 'dist/<%= pkg.name %>.js',
-        dest: 'dist/<%= pkg.name %>.min.js'
-      },
-      html5: {
         files: {
-          'imgcolr.html5.min.js': 'imgcolr.html5.js'
+          'dist/<%= pkg.name %>.min.js': 'dist/<%= pkg.name %>.js',
+          '<%= pkg.name %>.html5.min.js': '<%= pkg.name %>.html5.js'
         }
       }
     },

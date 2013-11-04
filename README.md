@@ -149,7 +149,9 @@ First of all , make sure jQuery and `imgcolr.html5.min.js` are included in your 
 <script src="jsdir/imgcolr.html5.min.js"></script>
 ```
 
-If your web page and images on the page are hosted on the same domain, skip this step, if not, you should enable image  CORS by adding the appropriate Access-Control-Allow-Origin header info ([more details](https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image) you must read). There is no different on calling method, and `Imgcolr.setSwf` is unnecessary:
+If your web page and images on the page are hosted on the same domain, skip this step, if not, you should enable image  CORS by adding the appropriate Access-Control-Allow-Origin header info ([more details](https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image) you must read).
+
+There is no different on calling method, and `Imgcolr.setSwf` is unnecessary:
 
 ```javascript
 

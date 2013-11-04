@@ -160,3 +160,5 @@ var imgs = $('img');
 imgs.imgcolr();
 
 ```
+
+:point_right: [Check out the demo page](http://swaydeng.github.io/imgcolr/h5.html).

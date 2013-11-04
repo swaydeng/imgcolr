@@ -1,5 +1,5 @@
 /*!
- * imgcolr v1.0.0
+ * imgcolr v1.0.1
  * Author: Sway Deng
  * Released under the MIT license
  */
